@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>EvaFlow — Estúdio de Engenharia de Soluções & Selfware</title>
+    <meta name="description"
+        content="A EvaFlow desenvolve ecossistemas tecnológicos sob demanda: Agentes de IA para WhatsApp, sistemas educacionais (TRI) e dashboards dinâmicos. Fuja das assinaturas abusivas e tenha controle total.">
+    <meta name="keywords"
+        content="EvaFlow, engenharia de software, automação de WhatsApp, sistema TRI, dashboards, planilhas inteligentes, selfware, open source, desenvolvimento sob medida, Mário Neto">
+    <meta name="author" content="Mário Neto">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://evaflow.com.br/">
+    <meta property="og:title" content="EvaFlow — Estúdio de Engenharia de Soluções & Selfware">
+    <meta property="og:description"
+        content="Desenvolvemos sistemas web exclusivos que se moldam ao seu negócio. Sem licenças recorrentes ou ferramentas fragmentadas.">
+    <meta property="og:image" content="https://evaflow.com.br/assets/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://evaflow.com.br/">
+    <meta property="twitter:title" content="EvaFlow — Estúdio de Engenharia de Soluções & Selfware">
+    <meta property="twitter:description"
+        content="Desenvolvemos sistemas web exclusivos que se moldam ao seu negócio. Sem licenças recorrentes ou ferramentas fragmentadas.">
+    <meta property="twitter:image" content="https://evaflow.com.br/assets/og-image.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body class="text-white bg-grid selection:bg-[#00E5FF] selection:text-black">
+
+    <!-- HEADER / NAVIGATION -->
+    <header
+        class="fixed top-0 w-full z-40 bg-[#050505]/70 backdrop-blur-md border-b border-white/5 py-4 px-6 transition-all duration-300">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 group" aria-label="EvaFlow Home">
+                <span class="w-2 h-2 rounded-full bg-[#00E5FF] group-hover:animate-ping"></span>
+                <span class="font-bold tracking-tight text-lg">Eva<span
+                        class="font-light italic text-neutral-400">Flow</span></span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-xs uppercase tracking-wider font-semibold text-neutral-400"
+                aria-label="Menu principal">
+                <a href="#manifesto" class="hover:text-white transition-colors">Filosofia</a>
+                <a href="#solucoes" class="hover:text-white transition-colors">Estudos de Caso</a>
+                <a href="#sobre" class="hover:text-white transition-colors">Sobre</a>
+            </nav>
+            <button id="btn-header-contact" onclick="openModal()"
+                class="btn-premium px-5 py-2 rounded-full border border-white/10 text-xs uppercase tracking-wider font-bold hover:bg-white hover:text-black transition-all duration-300">
+                Fale Conosco
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO SECTION (Apresentação Principal) -->
+        <section class="min-h-screen flex items-center justify-center pt-24 pb-16 px-6 relative overflow-hidden">
+            <!-- Detalhes em glow no fundo -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#00E5FF]/5 rounded-full filter blur-[120px] pointer-events-none"
+                aria-hidden="true"></div>
+
+            <div class="max-w-4xl text-center space-y-8 relative z-10 scroll-reveal active">
+                <span
+                    class="text-xs uppercase tracking-widest text-[#00E5FF] font-semibold border border-[#00E5FF]/20 rounded-full px-4 py-1.5 bg-[#00E5FF]/5">
+                    Soluções com IA Sob Demanda
+                </span>
+                <h1
+                    class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight md:leading-none max-w-3xl mx-auto">
+                    Sistemas inteligentes que se moldam à <span class="font-light italic text-neutral-400">sua
+                        operação</span>. Não o contrário.
+                </h1>
+                <p class="text-neutral-400 max-w-2xl mx-auto text-base md:text-lg font-light leading-relaxed">
+                    Desenvolvemos ecossistemas web sob medida: agentes de inteligência artificial, análise de dados e
+                    automação operacional. Sem licenças abusivas e sem recursos inúteis. Apenas tecnologia de ponta
+                    projetada para a realidade exclusiva do seu negócio.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a id="btn-hero-solutions" href="#solucoes"
+                        class="px-8 py-3.5 bg-white text-black font-semibold rounded-full hover:bg-[#00E5FF] hover:text-black transition-all duration-300 text-sm w-full sm:w-auto text-center">
+                        Conhecer Soluções
+                    </a>
+                    <button id="btn-hero-start" onclick="openModal()"
+                        class="btn-premium px-8 py-3.5 bg-transparent border border-white/10 text-white font-semibold rounded-full hover:border-white/30 transition-all duration-300 text-sm w-full sm:w-auto">
+                        Iniciar Meu Projeto
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- MANIFESTO SECTION (A Filosofia Selfware) -->
+        <section id="manifesto" class="py-24 border-y border-white/5 bg-[#070707]/30 px-6 relative">
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-5 space-y-4 scroll-reveal">
+                    <span class="text-xs uppercase tracking-widest text-[#00E676] font-semibold">Selfware</span>
+                    <h2 class="text-3xl font-bold tracking-tight">
+                        Chega de assinar <br>
+                        <span class="font-light italic text-neutral-400">softwares engessados.</span>
+                    </h2>
+                </div>
+                <div
+                    class="md:col-span-7 text-neutral-400 font-light text-base md:text-lg space-y-6 leading-relaxed scroll-reveal">
+                    <p>
+                        Hoje, as empresas pagam caro por uma pilha fragmentada de ferramentas: um valor recorrente para
+                        o site, outro para gestão de leads, mais um para o CRM, além do ERP. O resultado? Você usa
+                        apenas uma pequena fração do potencial de cada plataforma e força seu time a se adaptar a fluxos
+                        de trabalho rígidos.
+                    </p>
+                    <p>
+                        A <strong class="text-white font-semibold">EvaFlow</strong> atua sob a filosofia de <strong
+                            class="text-white font-semibold">Selfware</strong>. Criamos infraestruturas exclusivas e
+                        autogerenciáveis baseadas em código aberto (<em>open-source</em>). O que isso significa na
+                        prática? O fim das licenças por número de usuários, a unificação real da sua operação e a
+                        autonomia absoluta para gerir seus processos e dados com segurança. Você é o dono da tecnologia,
+                        não um mero locatário.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ESTUDOS DE CASO (As 3 Soluções) -->
+        <section id="solucoes" class="py-28 px-6 space-y-32 max-w-6xl mx-auto">
+            <div class="text-center space-y-4 max-w-2xl mx-auto scroll-reveal">
+                <span class="text-xs uppercase tracking-widest text-neutral-500 font-semibold">Cases de sucesso</span>
+                <h2 class="text-3xl md:text-4xl font-bold">Nossas frentes de <span
+                        class="font-light italic text-neutral-400">resolução</span></h2>
+                <p class="text-neutral-400 font-light text-sm">Problemas reais de operação resolvidos com tecnologia
+                    precisa e design holístico.</p>
+            </div>
+
+            <!-- Caso 01: WhatsApp AI (Ciano) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center scroll-reveal">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#00E5FF]"></span>
+                        <span class="text-xs uppercase tracking-wider text-[#00E5FF] font-bold">Casos de
+                            Automação</span>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Agentes de Atendimento Inteligente
+                        (WhatsApp IA)</h3>
+                    <p class="text-neutral-400 font-light leading-relaxed">
+                        Desenvolvemos agentes de IA que entendem o comportamento do usuário e respondem de forma
+                        natural. Perfeitos para clínicas, lanchonetes, restaurantes, além de equipes de pre-sales e CX
+                        (pós-venda e suporte), eles qualificam leads, tiram dúvidas e executam agendamentos ou pedidos
+                        de forma 100% autônoma. Tudo integrado aos seus sistemas internos e operando 24 horas por dia.
+                    </p>
+                    <button id="btn-case-automation" onclick="openModal()"
+                        class="btn-premium px-6 py-2.5 rounded-full border border-white/10 text-xs uppercase tracking-wider font-bold hover:border-[#00E5FF] hover:text-[#00E5FF] transition-all duration-300">
+                        Quero Esta Automação
+                    </button>
+                </div>
+                <!-- Mockup de Vídeo (WhatsApp IA) -->
+                <div
+                    class="bg-[#0A0A0A] border border-white/10 rounded-2xl overflow-hidden relative group aspect-video flex items-center justify-center">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-[#00E5FF]/5 rounded-full filter blur-xl opacity-50 pointer-events-none"
+                        aria-hidden="true"></div>
+                    <video id="whatsapp-demo-video" class="w-full h-full object-cover" loop muted playsinline
+                        preload="none"
+                        aria-label="Demonstração do Agente Conversacional com Inteligência Artificial para WhatsApp">
+                        <source data-src="assets/mockup-agendamento.mp4" type="video/mp4">
+                        Seu navegador não suporta a reprodução de vídeo.
+                    </video>
+                </div>
+            </div>
+
+            <!-- Caso 02: TRI (Verde) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center scroll-reveal">
+                <!-- Mockup Dashboard TRI (Esquerda no desktop) -->
+                <div
+                    class="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6 relative group overflow-hidden md:order-first order-last">
+                    <div class="absolute top-0 left-0 w-32 h-32 bg-[#00E676]/5 rounded-full filter blur-xl opacity-50"
+                        aria-hidden="true"></div>
+                    <!-- Interface Analítica Escolar -->
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between border-b border-white/5 pb-2">
+                            <span class="text-xs text-neutral-400 font-semibold">Simulado Geral ENEM — TRI</span>
+                            <span
+                                class="px-2 py-0.5 rounded bg-[#00E676]/10 text-[#00E676] text-[10px] font-mono">Processamento
+                                Ativo</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div class="bg-neutral-900/50 p-2 rounded border border-white/5">
+                                <span class="text-[9px] text-neutral-500 block">Média Geral</span>
+                                <span class="text-sm font-bold text-white">682.4</span>
+                            </div>
+                            <div class="bg-neutral-900/50 p-2 rounded border border-white/5">
+                                <span class="text-[9px] text-neutral-500 block">Maior Nota</span>
+                                <span class="text-sm font-bold text-[#00E676]">841.5</span>
+                            </div>
+                            <div class="bg-neutral-900/50 p-2 rounded border border-white/5">
+                                <span class="text-[9px] text-neutral-500 block">Total Alunos</span>
+                                <span class="text-sm font-bold text-white">420</span>
+                            </div>
+                        </div>
+                        <!-- Gráficos Simplificados -->
+                        <div class="space-y-2">
+                            <span class="text-[10px] text-neutral-400 block">Análise de Proficiência</span>
+                            <div class="w-full bg-white/5 rounded-full h-1.5">
+                                <div class="bg-[#00E676] h-1.5 rounded-full" style="width: 72%"></div>
+                            </div>
+                            <div class="w-full bg-white/5 rounded-full h-1.5">
+                                <div class="bg-[#00E676] h-1.5 rounded-full opacity-60" style="width: 54%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Texto (Direita) -->
+                <div class="space-y-6">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#00E676]"></span>
+                        <span class="text-xs uppercase tracking-wider text-[#00E676] font-bold">Tecnologia
+                            Educacional</span>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Sistema de Simulados Avançados (TRI)</h3>
+                    <p class="text-neutral-400 font-light leading-relaxed">
+                        Plataforma para escolas e cursos preparatórios que exigem inteligência estratégica. Mais do que
+                        um sistema de notas, a ferramenta calcula a TRI pelo desempenho real dos estudantes, entregando
+                        diagnósticos profundos sobre as avaliações, turmas e indivíduos. O grande trunfo é transformar
+                        dados em uma poderosa ferramenta pedagógica: a coordenação antecipa cenários e propõe mudanças
+                        de rota hiperespecíficas para direcionar o aprendizado antes das provas oficiais
+                    </p>
+                    <button id="btn-case-tri" onclick="openModal()"
+                        class="btn-premium px-6 py-2.5 rounded-full border border-white/10 text-xs uppercase tracking-wider font-bold hover:border-[#00E676] hover:text-[#00E676] transition-all duration-300">
+                        Ver Demonstração do TRI
+                    </button>
+                </div>
+            </div>
+
+            <!-- Caso 03: Dashboards & Planilhas (Roxo) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center scroll-reveal">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#B388FF]"></span>
+                        <span class="text-xs uppercase tracking-wider text-[#B388FF] font-bold">Inteligência
+                            Operacional</span>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Dashboards Dinâmicos Alimentados por suas
+                        Planilhas</h3>
+                    <p class="text-neutral-400 font-light leading-relaxed">
+                        Sua empresa não precisa de sistemas caros de Business Intelligence para começar a entender
+                        dados. Desenvolvemos fluxos automatizados que transformam as planilhas simples que você e seu
+                        time já usam diariamente em painéis analíticos interativos. Tomadas de decisão em tempo real com
+                        o custo operacional próximo a zero.
+                    </p>
+                    <button id="btn-case-data" onclick="openModal()"
+                        class="btn-premium px-6 py-2.5 rounded-full border border-white/10 text-xs uppercase tracking-wider font-bold hover:border-[#B388FF] hover:text-[#B388FF] transition-all duration-300">
+                        Automatizar Meus Dados
+                    </button>
+                </div>
+                <!-- Mockup Dashboard Integrated (Roxo) -->
+                <div class="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6 relative group overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-[#B388FF]/5 rounded-full filter blur-xl opacity-50"
+                        aria-hidden="true"></div>
+                    <!-- Gráficos de barra -->
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="text-neutral-400 font-semibold">Faturamento Consolidado (Google Sheets)</span>
+                            <span class="text-[#B388FF] font-mono">100% Sincronizado</span>
+                        </div>
+                        <div class="flex items-end gap-3 h-24 pt-4">
+                            <div class="bg-[#B388FF]/20 border border-[#B388FF]/30 w-full rounded-t"
+                                style="height: 40%"></div>
+                            <div class="bg-[#B388FF]/40 border border-[#B388FF]/50 w-full rounded-t"
+                                style="height: 65%"></div>
+                            <div class="bg-[#B388FF]/20 border border-[#B388FF]/30 w-full rounded-t"
+                                style="height: 50%"></div>
+                            <div class="bg-[#B388FF]/80 border border-[#B388FF]/100 w-full rounded-t"
+                                style="height: 85%"></div>
+                            <div class="bg-[#B388FF] w-full rounded-t" style="height: 95%"></div>
+                        </div>
+                        <div class="flex justify-between text-[9px] text-neutral-500 font-mono">
+                            <span>JAN</span>
+                            <span>FEV</span>
+                            <span>MAR</span>
+                            <span>ABR</span>
+                            <span>MAI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO SOBRE MIM (Mário Rodrigues) -->
+        <section id="sobre" class="py-24 border-t border-white/5 px-6">
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center scroll-reveal">
+
+                <!-- Foto de Perfil -->
+                <div class="relative group aspect-square w-full max-w-[360px] mx-auto md:mx-0">
+                    <div class="absolute inset-0 bg-[#00E5FF]/10 rounded-2xl filter blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        aria-hidden="true"></div>
+                    <div
+                        class="relative w-full h-full rounded-2xl border border-white/10 overflow-hidden bg-[#0A0A0A] transition-all duration-300 group-hover:border-white/20">
+                        <img src="assets/mario-neto.jpg" alt="Retrato de Mário Neto"
+                            class="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500">
+                    </div>
+                </div>
+
+                <!-- Bio Mário -->
+                <div class="flex flex-col space-y-6">
+                    <div class="space-y-2">
+                        <span class="text-xs uppercase tracking-widest text-[#00E5FF] font-semibold">A Mente Por
+                            Trás</span>
+                        <h2 class="text-3xl md:text-4xl font-bold tracking-tight">
+                            Mário <span class="font-light italic text-neutral-400">Neto</span>
+                        </h2>
+                    </div>
+
+                    <p class="text-neutral-400 leading-relaxed font-light text-base">
+                        Com uma sólida trajetória trabalhando com tecnologia, comunicação social e design, dedico-me a
+                        unir essa bagagem analítica e visual à inteligência artificial. Minha missão com a EvaFlow é
+                        desenhar ecossistemas operacionais limpos e altamente autônomos. A meta é direta: libertar sua
+                        empresa das assinaturas caras de SaaS e entregar ferramentas sob medida, onde você tem o
+                        controle tecnológico absoluto do que utiliza diariamente.
+                    </p>
+
+                    <div>
+                        <button id="btn-about-contact" onclick="openModal()"
+                            class="px-8 py-3 bg-white text-black font-semibold rounded-full hover:bg-[#00E5FF] hover:text-black transition-all duration-300 transform active:scale-95 inline-flex items-center gap-2 text-sm shadow-lg hover:shadow-[#00E5FF]/20">
+                            Fale com Mário
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-12 border-t border-white/5 bg-[#030303] px-6 text-xs text-neutral-500">
+        <div
+            class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#00E5FF]"></span>
+                <span class="font-bold text-white tracking-tight">Eva<span
+                        class="font-light italic text-neutral-400">Flow</span></span>
+            </div>
+            <div class="space-y-1">
+                <p>&copy; 2026 EvaFlow. Todos os direitos reservados.</p>
+                <p>mario.rd8@gmail.com — (81) 98809-0458 — @mario.rd8</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DE CAPTURA (Estilo T-Radar) -->
+    <div id="leadModal"
+        class="fixed inset-0 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 bg-black/85 backdrop-blur-md px-4"
+        role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <!-- Card do Modal -->
+        <div class="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6 md:p-8 max-w-md w-full relative transform scale-95 transition-all duration-300"
+            id="modalCard">
+
+            <button onclick="closeModal()"
+                class="absolute top-4 right-4 text-neutral-400 hover:text-white transition-colors"
+                aria-label="Fechar modal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <div class="mb-6 space-y-1">
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#00E5FF] animate-pulse"></span>
+                    <span class="text-xs uppercase tracking-wider text-neutral-400 font-semibold">Contato Direto</span>
+                </div>
+                <h3 class="text-xl font-bold" id="modalTitle">Desenhar Minha <span
+                        class="font-light italic text-neutral-400">Solução</span></h3>
+            </div>
+
+            <form id="leadForm" class="space-y-4" onsubmit="handleSubmit(event)">
+                <div>
+                    <label class="block text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-2"
+                        for="nome">Nome Completo</label>
+                    <input type="text" id="nome" required placeholder="Ex: João Silva"
+                        class="w-full bg-[#050505] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-neutral-600 focus:outline-none focus:border-[#00E5FF] transition-colors text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-2"
+                        for="telefone">Telefone / WhatsApp</label>
+                    <input type="tel" id="telefone" required placeholder="Ex: (81) 98809-0458"
+                        class="w-full bg-[#050505] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-neutral-600 focus:outline-none focus:border-[#00E5FF] transition-colors text-sm">
+                </div>
+
+                <div class="flex items-start gap-3 pt-2">
+                    <input type="checkbox" id="lgpd" required
+                        class="mt-1 accent-[#00E5FF] h-4 w-4 rounded border-white/10 bg-[#050505] text-black focus:ring-0">
+                    <label for="lgpd" class="text-xs text-neutral-400 leading-snug">
+                        Autorizo o contato para tratar de soluções sob medida. Meus dados serão armazenados com
+                        segurança sob a LGPD.
+                    </label>
+                </div>
+
+                <button type="submit" id="submitBtn"
+                    class="w-full mt-4 py-3 bg-[#00E5FF] hover:bg-[#00b2cc] text-black font-semibold rounded-full transition-all duration-300 transform active:scale-95 text-sm uppercase tracking-wider flex items-center justify-center gap-2">
+                    <span>Enviar e Conversar</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

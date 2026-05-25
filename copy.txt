@@ -1,0 +1,208 @@
+# MAPA DE COPYWRITING — EVAFLOW.COM.BR
+Documento de apoio para edição e refinamento de textos da Landing Page.
+
+Use a estrutura abaixo em Markdown para reescrever as copys. Cada bloco indica a tag HTML correspondente ou a área onde o texto reside no projeto para facilitar a sua substituição futura.
+
+---
+
+## 0. METADADOS E SEO (Tags de Cabeçalho)
+
+*   **Título do Site (`<title>`)**:
+    ```text
+    EvaFlow — Estúdio de Engenharia de Soluções & Selfware
+    ```
+    
+*   **Descrição do Site (`<meta name="description">`)**:
+    ```text
+    A EvaFlow desenvolve ecossistemas tecnológicos sob demanda: Agentes de IA para WhatsApp, sistemas educacionais (TRI) e dashboards dinâmicos. Fuja das assinaturas abusivas e tenha controle total.
+    ```
+
+*   **Palavras-Chave (`<meta name="keywords">`)**:
+    ```text
+    EvaFlow, engenharia de software, automação de WhatsApp, sistema TRI, dashboards, planilhas inteligentes, selfware, open source, desenvolvimento sob medida, Mário Neto
+    ```
+
+---
+
+## 1. CABEÇALHO (Header & Navegação)
+
+*   **Logo Text**:
+    ```text
+    EvaFlow
+    ```
+    *(Nota: Estilizado como "Eva" em negrito ciano e "Flow" em itálico neutro suave)*
+
+*   **Menu de Navegação**:
+    *   Item 1: `Filosofia`
+    *   Item 2: `Estudos de Caso`
+    *   Item 3: `Sobre`
+
+*   **Botão de Ação Primária**:
+    ```text
+    Fale Conosco
+    ```
+
+---
+
+## 2. DOBRA 1: HERO SECTION (Apresentação de Impacto)
+
+*   **Etiqueta Superior (Tagline)**:
+    ```text
+    Soluções com IA Sob Demanda
+    ```
+
+*   **Título Principal (H1)**:
+    ```text
+    Sistemas inteligentes que se moldam à sua operação. Não o contrário.
+    ```
+    *(Destaque em itálico/suave: "sua operação")*
+
+*   **Subtítulo / Texto de Apoio (P)**:
+    ```text
+    Desenvolvemos ecossistemas web sob medida: agentes de inteligência artificial, análise de dados e automação operacional. Sem licenças abusivas e sem recursos inúteis. Apenas tecnologia de ponta projetada para a realidade exclusiva do seu negócio.
+    ```
+
+*   **Chamadas para Ação (CTAs)**:
+    *   Botão Principal (Preenchido): `Conhecer Soluções`
+    *   Botão Secundário (Borda): `Iniciar Meu Projeto`
+
+---
+
+## 3. DOBRA 2: O MANIFESTO (A Filosofia Selfware)
+
+*   **Etiqueta Superior**:
+    ```text
+    Selfware
+    ```
+
+*   **Título da Seção (H2)**:
+    ```text
+    Chega de assinar softwares engessados.
+    ```
+    *(Destaque em itálico/suave: "softwares engessados")*
+
+*   **Texto do Manifesto - Parágrafo 1**:
+    ```text
+    Hoje, as empresas pagam caro por uma pilha fragmentada de ferramentas: um valor recorrente para o site, outro para gestão de leads, mais um para o CRM, além do ERP. O resultado? Você usa apenas uma pequena fração do potencial de cada plataforma e força seu time a se adaptar a fluxos de trabalho rígidos.
+    ```
+
+*   **Texto do Manifesto - Parágrafo 2**:
+    ```text
+    A EvaFlow atua sob a filosofia de Selfware. Criamos infraestruturas exclusivas e autogerenciáveis baseadas em código aberto (open-source). O que isso significa na prática? O fim das licenças por número de usuários, a unificação real da sua operação e a autonomia absoluta para gerir seus processos e dados com segurança. Você é o dono da tecnologia, não um mero locatário.
+    ```
+
+---
+
+## 4. DOBRA 3: ESTUDOS DE CASO (Frentes de Resolução)
+
+*   **Etiqueta Superior**:
+    ```text
+    Cases de sucesso
+    ```
+
+*   **Título Principal da Seção (H2)**:
+    ```text
+    Nossas frentes de resolução
+    ```
+    *(Destaque em itálico/suave: "resolução")*
+
+*   **Subtítulo de Apoio**:
+    ```text
+    Problemas reais de operação resolvidos com tecnologia precisa e design holístico.
+    ```
+
+### CASO 01: Automação Conversacional
+*   **Etiqueta do Caso**: `Casos de Automação`
+*   **Título do Caso (H3)**: `Agentes de Atendimento Inteligente (WhatsApp IA)`
+*   **Descrição**:
+    ```text
+    Desenvolvemos agentes de IA que entendem o comportamento do usuário e respondem de forma natural. Perfeitos para clínicas, lanchonetes, restaurantes, além de equipes de pre-sales e CX (pós-venda e suporte), eles qualificam leads, tiram dúvidas e executam agendamentos ou pedidos de forma 100% autônoma. Tudo integrado aos seus sistemas internos e operando 24 horas por dia.
+    ```
+*   **Ação (CTA)**: `Quero Esta Automação`
+
+*   **Texto Simulador de Conversa (Mockup)**:
+    *   *Usuário (Esquerda)*: "Olá! Gostaria de agendar uma consulta para amanhã à tarde na clínica."
+    *   *IA (Direita - Ciano)*: "Olá! Tenho vagas às 14h e às 16:30h. Qual fica melhor para você?"
+    *   *Usuário (Esquerda)*: "Às 14h perfeito. Meu nome é João Silva."
+    *   *IA (Direita - Ciano)*: "Agendado, João! Confirmação enviada e inserida em nosso sistema de forma automática."
+
+### CASO 02: Tecnologia Educacional
+*   **Etiqueta do Caso**: `Tecnologia Educacional`
+*   **Título do Caso (H3)**: `Sistema de Simulados Avançados (TRI)`
+*   **Descrição**:
+    ```text
+    Plataforma para escolas e cursos preparatórios que exigem inteligência estratégica. Mais do que um sistema de notas, a ferramenta calcula a TRI pelo desempenho real dos estudantes, entregando diagnósticos profundos sobre as avaliações, turmas e indivíduos. O grande trunfo é transformar dados em uma poderosa ferramenta pedagógica: a coordenação antecipa cenários e propõe mudanças de rota hiperespecíficas para direcionar o aprendizado antes das provas oficiais.
+    ```
+*   **Ação (CTA)**: `Ver Demonstração do TRI`
+
+*   **Textos do Mockup (Painel Analítico)**:
+    *   Título da Interface: `Simulado Geral ENEM — TRI`
+    *   Etiqueta de Status: `Processamento Ativo`
+    *   Métrica 1: `Média Geral: 682.4`
+    *   Métrica 2: `Maior Nota: 841.5`
+    *   Métrica 3: `Total Alunos: 420`
+    *   Gráfico: `Análise de Proficiência`
+
+### CASO 03: Inteligência Operacional
+*   **Etiqueta do Caso**: `Inteligência Operacional`
+*   **Título do Caso (H3)**: `Dashboards Dinâmicos Alimentados por suas Planilhas`
+*   **Descrição**:
+    ```text
+    Sua empresa não precisa de sistemas caros de Business Intelligence para começar a entender dados. Desenvolvemos fluxos automatizados que transformam as planilhas simples que você e seu time já usam diariamente em painéis analíticos interativos. Tomadas de decisão em tempo real com o custo operacional próximo a zero.
+    ```
+*   **Ação (CTA)**: `Automatizar Meus Dados`
+
+*   **Textos do Mockup (Dashboard Roxo)**:
+    *   Título da Interface: `Faturamento Consolidado (Google Sheets)`
+    *   Etiqueta de Sincronismo: `100% Sincronizado`
+    *   Eixo Temporal: `JAN | FEV | MAR | ABR | MAI`
+
+---
+
+## 5. DOBRA 4: APRESENTAÇÃO PESSOAL (Sobre o Engenheiro)
+
+*   **Etiqueta Superior**:
+    ```text
+    A Mente Por Trás
+    ```
+
+*   **Nome (H2)**:
+    ```text
+    Mário Neto
+    ```
+    *(Destaque em itálico/suave: "Neto")*
+
+*   **Bio/Apresentação (P)**:
+    ```text
+    Com uma sólida trajetória trabalhando com tecnologia, comunicação social e design, dedico-me a unir essa bagagem analítica e visual à inteligência artificial. Minha missão com a EvaFlow é desenhar ecossistemas operacionais limpos e altamente autônomos. A meta é direta: libertar sua empresa das assinaturas caras de SaaS e entregar ferramentas sob medida, onde você tem o controle tecnológico absoluto do que utiliza diariamente.
+    ```
+
+*   **Botão de CTA**:
+    ```text
+    Fale com Mário
+    ```
+
+---
+
+## 6. RODAPÉ (Footer)
+
+*   **Logo Rodapé**: `EvaFlow`
+*   **Direitos Autorais**: `© 2026 EvaFlow. Todos os direitos reservados.`
+*   **Dados de Contato**: `mario.rd8@gmail.com — (81) 98809-0458 — @mario.rd8`
+
+---
+
+## 7. CAPTURA DE LEADS (Modal T-Radar)
+
+*   **Etiqueta**: `Contato Direto`
+*   **Título do Modal (H3)**:
+    ```text
+    Desenhar Minha Solução
+    ```
+    *(Destaque em itálico/suave: "Solução")*
+
+*   **Formulário**:
+    *   Campo 1 (Nome): Rótulo: `Nome Completo` | Marcador (Placeholder): `Ex: João Silva`
+    *   Campo 2 (Telefone): Rótulo: `Telefone / WhatsApp` | Marcador (Placeholder): `Ex: (81) 98809-0458`
+    *   Termo de Consentimento LGPD: `Autorizo o contato para tratar de soluções sob medida. Meus dados serão armazenados com segurança sob a LGPD.`
+    *   Botão de Envio (CTA): `Enviar e Conversar`
