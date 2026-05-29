@@ -15,11 +15,20 @@ document.addEventListener('DOMContentLoaded', () => {
 const modal = document.getElementById('leadModal');
 const card = document.getElementById('modalCard');
 
+// Rastreamento dinâmico de origem do clique do lead
+let leadOrigem = 'Geral';
+
 /**
- * Abre o modal de captura
+ * Abre o modal de captura e registra a origem do clique
+ * @param {string} origem - Seção de onde partiu o clique do usuário
  */
-function openModal() {
+function openModal(origem) {
   if (!modal || !card) return;
+  
+  if (origem) {
+    leadOrigem = origem;
+  }
+
   modal.classList.remove('opacity-0', 'pointer-events-none');
   modal.classList.add('opacity-100', 'pointer-events-auto');
   card.classList.remove('scale-95');
@@ -129,7 +138,7 @@ function initLazyVideo() {
 }
 
 /**
- * Envio do Formulário n8n + Redirecionamento WhatsApp
+ * Envio do Formulário + Redirecionamento Direto para o WhatsApp
  */
 async function handleSubmit(event) {
   event.preventDefault();
@@ -143,10 +152,10 @@ async function handleSubmit(event) {
   const nome = nomeInput.value;
   const telefone = telefoneInput.value;
 
-  // URL do seu webhook do n8n para salvar na planilha
-  const n8nWebhookUrl = 'https://SUA_URL_DO_N8N.com/webhook/seu-endpoint';
+  // Endpoint do Webhook no n8n (configurado e pronto para uso futuro)
+  const n8nWebhookUrl = 'https://n8n.forcaisoladas.com.br/webhook/site-formulario';
 
-  // Feedback visual de carregamento
+  // Feedback visual instantâneo de envio
   submitBtn.disabled = true;
   const originalContent = submitBtn.innerHTML;
   submitBtn.innerHTML = `
@@ -154,13 +163,15 @@ async function handleSubmit(event) {
       <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
       <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
     </svg>
-    <span>Processando...</span>
+    <span>Redirecionando...</span>
   `;
 
+  // === CHAMADA DO WEBHOOK DO N8N (Comentada temporariamente a pedido do usuário) ===
+  // Para ativar o salvamento automático no Supabase/n8n no futuro, basta descomentar este bloco try-catch:
+  /*
   try {
-    // Configura um timeout de 3 segundos para não prender o usuário se o n8n demorar
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 3000);
+    const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 segundos de timeout máximo
 
     await fetch(n8nWebhookUrl, {
       method: 'POST',
@@ -168,25 +179,29 @@ async function handleSubmit(event) {
       body: JSON.stringify({
         nome: nome,
         telefone: telefone,
-        data: new Date().toISOString(),
-        origem: 'Landing Page EvaFlow'
+        origem: leadOrigem,
+        timestamp: new Date().toISOString()
       }),
       signal: controller.signal
     });
     
     clearTimeout(timeoutId);
   } catch (error) {
-    console.warn('Erro ao registrar lead no n8n ou timeout atingido (redirecionando mesmo assim):', error);
-  } finally {
-    const whatsappNumber = '5581988090458';
-    const textMessage = encodeURIComponent(`Olá Mário, enviei meus dados no site da EvaFlow e quero desenhar uma solução personalizada. Meu nome é ${nome}.`);
-    
-    // Redireciona para o WhatsApp
-    window.location.href = `https://wa.me/${whatsappNumber}?text=${textMessage}`;
+    console.warn('Registro no n8n pulado ou timeout atingido:', error);
   }
+  */
+
+  // Redirecionamento imediato do lead para o WhatsApp com a mensagem simplificada
+  const whatsappNumber = '5581988090458';
+  const textMessage = encodeURIComponent("Olá Mário, vim do site EvaFlow e gostaria de uma conversa");
+  
+  // Executa o redirecionamento
+  window.location.href = `https://wa.me/${whatsappNumber}?text=${textMessage}`;
 }
 
 // Expõe as funções globalmente para serem chamadas nos botões inline
 window.openModal = openModal;
 window.closeModal = closeModal;
 window.handleSubmit = handleSubmit;
+
+

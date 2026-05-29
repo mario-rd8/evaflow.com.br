@@ -54,7 +54,7 @@
                 <a href="#solucoes" class="hover:text-white transition-colors">Estudos de Caso</a>
                 <a href="#sobre" class="hover:text-white transition-colors">Sobre</a>
             </nav>
-            <button id="btn-header-contact" onclick="openModal()"
+            <button id="btn-header-contact" onclick="openModal('Cabeçalho')"
                 class="btn-premium px-5 py-2 rounded-full border border-white/10 text-xs uppercase tracking-wider font-bold hover:bg-white hover:text-black transition-all duration-300">
                 Fale Conosco
             </button>
@@ -89,7 +89,7 @@
                         class="px-8 py-3.5 bg-white text-black font-semibold rounded-full hover:bg-[#00E5FF] hover:text-black transition-all duration-300 text-sm w-full sm:w-auto text-center">
                         Conhecer Soluções
                     </a>
-                    <button id="btn-hero-start" onclick="openModal()"
+                    <button id="btn-hero-start" onclick="openModal('Destaque - Iniciar Projeto')"
                         class="btn-premium px-8 py-3.5 bg-transparent border border-white/10 text-white font-semibold rounded-full hover:border-white/30 transition-all duration-300 text-sm w-full sm:w-auto">
                         Iniciar Meu Projeto
                     </button>
@@ -153,7 +153,7 @@
                         (pós-venda e suporte), eles qualificam leads, tiram dúvidas e executam agendamentos ou pedidos
                         de forma 100% autônoma. Tudo integrado aos seus sistemas internos e operando 24 horas por dia.
                     </p>
-                    <button id="btn-case-automation" onclick="openModal()"
+                    <button id="btn-case-automation" onclick="openModal('Caso 01 - WhatsApp IA')"
                         class="btn-premium px-6 py-2.5 rounded-full border border-white/10 text-xs uppercase tracking-wider font-bold hover:border-[#00E5FF] hover:text-[#00E5FF] transition-all duration-300">
                         Quero Esta Automação
                     </button>
@@ -228,7 +228,7 @@
                         dados em uma poderosa ferramenta pedagógica: a coordenação antecipa cenários e propõe mudanças
                         de rota hiperespecíficas para direcionar o aprendizado antes das provas oficiais
                     </p>
-                    <button id="btn-case-tri" onclick="openModal()"
+                    <button id="btn-case-tri" onclick="openModal('Caso 02 - TRI')"
                         class="btn-premium px-6 py-2.5 rounded-full border border-white/10 text-xs uppercase tracking-wider font-bold hover:border-[#00E676] hover:text-[#00E676] transition-all duration-300">
                         Ver Demonstração do TRI
                     </button>
@@ -251,7 +251,7 @@
                         time já usam diariamente em painéis analíticos interativos. Tomadas de decisão em tempo real com
                         o custo operacional próximo a zero.
                     </p>
-                    <button id="btn-case-data" onclick="openModal()"
+                    <button id="btn-case-data" onclick="openModal('Caso 03 - Dashboards')"
                         class="btn-premium px-6 py-2.5 rounded-full border border-white/10 text-xs uppercase tracking-wider font-bold hover:border-[#B388FF] hover:text-[#B388FF] transition-all duration-300">
                         Automatizar Meus Dados
                     </button>
@@ -322,16 +322,18 @@
                         controle tecnológico absoluto do que utiliza diariamente.
                     </p>
 
-                    <div>
-                        <button id="btn-about-contact" onclick="openModal()"
-                            class="px-8 py-3 bg-white text-black font-semibold rounded-full hover:bg-[#00E5FF] hover:text-black transition-all duration-300 transform active:scale-95 inline-flex items-center gap-2 text-sm shadow-lg hover:shadow-[#00E5FF]/20">
+                    <div class="flex items-center gap-4 flex-wrap">
+                        <button id="btn-about-contact" onclick="openModal('Sobre - Bio Mário')"
+                            class="px-8 py-3 bg-white text-black font-semibold rounded-full hover:bg-[#00E5FF] hover:text-black transition-all duration-300 transform active:scale-95 inline-flex items-center text-sm shadow-lg hover:shadow-[#00E5FF]/20">
                             Fale com Mário
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
                         </button>
+                        <a href="https://www.linkedin.com/in/mariord8/" target="_blank" rel="noopener noreferrer"
+                            class="group flex items-center justify-center w-12 h-12 transition-all duration-300 active:scale-95 text-neutral-400 hover:text-[#00E5FF]"
+                            aria-label="LinkedIn de Mário Neto">
+                            <svg class="w-9 h-9 transition-colors duration-300" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M36,0C16.12,0,0,16.12,0,36s16.12,36,36,36,36-16.12,36-36S55.88,0,36,0ZM25.77,54.7h-7.72v-24.93h7.72v24.93ZM21.87,26.51c-2.53,0-4.56-2.06-4.56-4.6s2.04-4.6,4.56-4.6,4.56,2.06,4.56,4.6-2.04,4.6-4.56,4.6ZM54.7,54.7h-7.68v-13.09c0-3.59-1.36-5.6-4.2-5.6-3.09,0-4.7,2.09-4.7,5.6v13.09h-7.41v-24.93h7.41v3.36s2.23-4.13,7.52-4.13,9.07,3.23,9.07,9.91v15.79Z" fill="currentColor"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -353,6 +355,8 @@
             </div>
         </div>
     </footer>
+
+
 
     <!-- MODAL DE CAPTURA (Estilo T-Radar) -->
     <div id="leadModal"
@@ -404,12 +408,8 @@
                 </div>
 
                 <button type="submit" id="submitBtn"
-                    class="w-full mt-4 py-3 bg-[#00E5FF] hover:bg-[#00b2cc] text-black font-semibold rounded-full transition-all duration-300 transform active:scale-95 text-sm uppercase tracking-wider flex items-center justify-center gap-2">
-                    <span>Enviar e Conversar</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                    </svg>
+                    class="w-full mt-4 py-3 bg-[#00E5FF] hover:bg-[#00b2cc] text-black font-semibold rounded-full transition-all duration-300 transform active:scale-95 text-sm uppercase tracking-wider flex items-center justify-center">
+                    <span>ENVIAR</span>
                 </button>
             </form>
         </div>
