@@ -81,3 +81,23 @@ body {
 .btn-premium:hover::after {
   transform: translateX(100%);
 }
+
+/* Animações com Máscara GSAP */
+.reveal-parent {
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 0.15em;
+  margin-bottom: -0.15em;
+}
+
+.reveal-child {
+  display: block;
+  transform: translateY(105%); /* Esconde inicialmente para evitar flash visual */
+}
+
+/* Painéis de Rolagem Horizontal */
+.panel {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+}

@@ -1,14 +1,20 @@
 /* main.js - Lógica interativa para EvaFlow.com.br */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Estrelas primeiro — antes de tudo, para não ser bloqueado por erro de outra função
+  try { initHeroStars(); } catch(e) { console.error('[Stars] Erro:', e); }
+
   // Inicializa o Scroll Reveal (IntersectionObserver)
-  initScrollReveal();
+  try { initScrollReveal(); } catch(e) { console.error('[ScrollReveal] Erro:', e); }
 
   // Efeito dinâmico no Header ao rolar a página
-  initHeaderScrollEffect();
+  try { initHeaderScrollEffect(); } catch(e) { console.error('[Header] Erro:', e); }
 
   // Inicializa o carregamento inteligente e preguiçoso do vídeo demonstrativo
-  initLazyVideo();
+  try { initLazyVideo(); } catch(e) { console.error('[Video] Erro:', e); }
+
+  // Inicializa as animações premium com GSAP
+  try { initGSAPAnimations(); } catch(e) { console.error('[GSAP] Erro:', e); }
 });
 
 // Seletores do Modal
@@ -152,8 +158,8 @@ async function handleSubmit(event) {
   const nome = nomeInput.value;
   const telefone = telefoneInput.value;
 
-  // Endpoint do Webhook no n8n (configurado e pronto para uso futuro)
-  const n8nWebhookUrl = 'https://n8n.forcaisoladas.com.br/webhook/site-formulario';
+  // Endpoint do Webhook no n8n
+  const n8nWebhookUrl = 'https://n8n.evaflow.com.br/webhook/site-formulario';
 
   // Feedback visual instantâneo de envio
   submitBtn.disabled = true;
@@ -166,9 +172,7 @@ async function handleSubmit(event) {
     <span>Redirecionando...</span>
   `;
 
-  // === CHAMADA DO WEBHOOK DO N8N (Comentada temporariamente a pedido do usuário) ===
-  // Para ativar o salvamento automático no Supabase/n8n no futuro, basta descomentar este bloco try-catch:
-  /*
+  // Envio dos dados para o n8n
   try {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 segundos de timeout máximo
@@ -179,7 +183,7 @@ async function handleSubmit(event) {
       body: JSON.stringify({
         nome: nome,
         telefone: telefone,
-        origem: leadOrigem,
+        origem: `${leadOrigem}-site-evaflow`,
         timestamp: new Date().toISOString()
       }),
       signal: controller.signal
@@ -189,19 +193,218 @@ async function handleSubmit(event) {
   } catch (error) {
     console.warn('Registro no n8n pulado ou timeout atingido:', error);
   }
-  */
 
   // Redirecionamento imediato do lead para o WhatsApp com a mensagem simplificada
   const whatsappNumber = '5581988090458';
   const textMessage = encodeURIComponent("Olá Mário, vim do site EvaFlow e gostaria de uma conversa");
   
-  // Executa o redirecionamento
-  window.location.href = `https://wa.me/${whatsappNumber}?text=${textMessage}`;
+  // Executa o redirecionamento em uma nova aba
+  window.open(`https://wa.me/${whatsappNumber}?text=${textMessage}`, '_blank');
+
+  // Restaura o botão e fecha o modal na página atual
+  submitBtn.disabled = false;
+  submitBtn.innerHTML = originalContent;
+  closeModal();
+  nomeInput.value = '';
+  telefoneInput.value = '';
 }
 
 // Expõe as funções globalmente para serem chamadas nos botões inline
 window.openModal = openModal;
 window.closeModal = closeModal;
 window.handleSubmit = handleSubmit;
+
+/**
+ * Inicializa todas as animações com GSAP e ScrollTrigger
+ */
+function initGSAPAnimations() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    console.warn('GSAP ou ScrollTrigger não foram carregados.');
+    return;
+  }
+
+  // Registra o plugin
+  gsap.registerPlugin(ScrollTrigger);
+
+  // 1. Animação de Entrada do Hero (Line/Mask Reveal no Load)
+  gsap.to("#hero-section .reveal-child", {
+    y: "0%",
+    duration: 1.4,
+    ease: "power4.out",
+    stagger: 0.15,
+    delay: 0.2
+  });
+
+  gsap.to("#hero-description", {
+    opacity: 1,
+    duration: 1.6,
+    ease: "power2.out",
+    delay: 0.6
+  });
+
+
+
+  // 2. Rolagem Horizontal (Showcase Pin)
+  const container = document.getElementById("solucoes-container");
+  const pinTarget = document.getElementById("solucoes-pin");
+  let horizontalTween;
+  
+  if (container && pinTarget) {
+    horizontalTween = gsap.to(container, {
+      x: () => -(container.scrollWidth - window.innerWidth),
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#solucoes",
+        pin: "#solucoes-pin",
+        scrub: 1,
+        start: "top top",
+        end: () => "+=" + (container.scrollWidth - window.innerWidth),
+        invalidateOnRefresh: true
+      }
+    });
+  }
+
+  // 3. Efeito de Revelação nos Títulos de Seção ao Rolar a Página (Vertical)
+  // Usa o ID do hero em vez da classe min-h-screen para não excluir outras seções que também usam essa classe
+  gsap.utils.toArray("section:not(#hero-section) .reveal-parent").forEach((parent) => {
+    const children = parent.querySelectorAll(".reveal-child");
+    if (children.length === 0) return;
+
+    gsap.to(children, {
+      y: "0%",
+      duration: 1.2,
+      ease: "power4.out",
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: parent,
+        start: "top 85%",
+        toggleActions: "play none none none"
+      }
+    });
+  });
+
+  // 4. Efeitos de Imagem por Painel ao Expor Horizontalmente
+  if (horizontalTween) {
+    gsap.utils.toArray("#solucoes .panel").forEach((panel) => {
+      // Animação de fade-in na imagem/mockup do painel
+      const media = panel.querySelector(".aspect-video video, .aspect-video img, .aspect-video > div");
+      if (media) {
+        gsap.set(media, { opacity: 0, scale: 0.95 });
+        gsap.to(media, {
+          opacity: 1,
+          scale: 1,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: panel,
+            containerAnimation: horizontalTween,
+            start: "left 60%",
+            toggleActions: "play none none none"
+          }
+        });
+      }
+    });
+  }
+}
+
+/**
+ * Fundo estrelado com Parallax — versão final de produção
+ * Canvas criado 100% via JS e injetado no body
+ * Deve ser chamado ANTES do GSAP para evitar bloqueio por erro
+ */
+function initHeroStars() {
+  const canvas = document.createElement('canvas');
+  canvas.id = 'hero-stars';
+
+  Object.assign(canvas.style, {
+    position: 'fixed',
+    top: '0',
+    left: '0',
+    width: '100vw',
+    height: '100vh',
+    pointerEvents: 'none',
+    zIndex: '5',          // Abaixo do header (z-40) e conteúdo (z-20), acima do fundo
+    display: 'block',
+    opacity: '1',
+    transition: 'opacity 0.6s ease'
+  });
+
+  document.body.appendChild(canvas);
+
+  const ctx = canvas.getContext('2d');
+  if (!ctx) { console.error('[Stars] Contexto 2D indisponível.'); return; }
+
+  let W = canvas.width  = window.innerWidth;
+  let H = canvas.height = window.innerHeight;
+
+  window.addEventListener('resize', () => {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    spawn();
+  });
+
+  // Paleta: branco, branco-azulado, ciano, roxo
+  const PALETTE = [
+    [255, 255, 255],
+    [210, 240, 255],
+    [0,   229, 255],
+    [179, 136, 255],
+  ];
+
+  const COUNT = 200;
+  const pts   = [];
+
+  function spawn() {
+    pts.length = 0;
+    for (let i = 0; i < COUNT; i++) {
+      const c = PALETTE[Math.floor(Math.random() * PALETTE.length)];
+      pts.push({
+        x:  Math.random() * W,
+        y:  Math.random() * H,
+        r:  Math.random() * 1.0 + 0.3,          // 0.3px – 1.3px (muito pequenas)
+        a:  Math.random() * 0.55 + 0.25,         // opacidade 0.25 – 0.8
+        cr: c[0], cg: c[1], cb: c[2],
+        px: Math.random() * 0.055 + 0.008        // fator parallax individual
+      });
+    }
+  }
+
+  spawn();
+
+  // Parallax
+  let mx = 0, my = 0, smx = 0, smy = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX - W / 2;
+    my = e.clientY - H / 2;
+  });
+
+  // Oculta as estrelas quando o hero sai de cena
+  const hero = document.getElementById('hero-section');
+  if (hero) {
+    new IntersectionObserver(([entry]) => {
+      canvas.style.opacity = entry.isIntersecting ? '1' : '0';
+    }, { threshold: 0.01 }).observe(hero);
+  }
+
+  function draw() {
+    requestAnimationFrame(draw);
+
+    ctx.clearRect(0, 0, W, H);
+
+    smx += (mx - smx) * 0.04;
+    smy += (my - smy) * 0.04;
+
+    for (let i = 0; i < pts.length; i++) {
+      const p = pts[i];
+      ctx.beginPath();
+      ctx.arc(p.x + smx * p.px, p.y + smy * p.px, p.r, 0, 6.2832);
+      ctx.fillStyle = `rgba(${p.cr},${p.cg},${p.cb},${p.a})`;
+      ctx.fill();
+    }
+  }
+
+  draw();
+}
+
 
 
